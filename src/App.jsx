@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Container from "./Components/Scoreboard";
+import Container from "./components/containers/Scoreboard";
 
 function App() {
   return (
