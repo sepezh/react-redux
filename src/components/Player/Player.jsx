@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Counter from "../Counter";
 
 const Player = (props) => {
@@ -6,7 +7,7 @@ const Player = (props) => {
     <div className="player">
       <div className="player-name">
         <a href className="remove-player" onClick={props.onRemove}>
-          x
+          ✖
         </a>
         {props.name}
       </div>
@@ -18,10 +19,10 @@ const Player = (props) => {
 };
 
 Player.propTypes = {
-  name: PropTypes.string,
-  score: PropTypes.number,
-  onRemove: PropTypes.func,
-  onScoreChange: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  onScoreChange: PropTypes.func.isRequired,
 };
 
 export default Player;

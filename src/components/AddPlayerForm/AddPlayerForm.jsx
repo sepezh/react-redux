@@ -1,30 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-let createReactClass = require("create-react-class");
-const AddPlayerForm = createReactClass({
-  propTypes: {
-    onAdd: React.PropTypes.func.isRequired,
-  },
-  getInitialState: () => {
-    return { name: "" };
-  },
-  onNameChange: (e) => {
+class AddPlayerForm extends Component {
+  static propTypes = {
+    onAdd: PropTypes.func.isRequired,
+  };
+  state = {
+    name: "",
+  };
+  onNameChange = (e) => {
     const name = e.target.value;
     this.setState({ name: name });
-  },
-  onSubmit: (e) => {
+  };
+  onSubmit = (e) => {
     if (e) e.preventDefault();
     this.props.onAdd(this.state.name);
     this.setState({ name: "" });
-  },
+  };
 
-  render: () => {
+  render() {
     return (
       <div className="add-player-form">
-        <form onSubmit="this.onSubmit">
+        <form onSubmit={this.onSubmit}>
           <input
             type="text"
-            value={this.sate.name}
+            value={this.state.name}
             onChange={this.onNameChange}
             placeholder="Player Name"
           />
@@ -32,7 +32,7 @@ const AddPlayerForm = createReactClass({
         </form>
       </div>
     );
-  },
-});
+  }
+}
 
 export default AddPlayerForm;

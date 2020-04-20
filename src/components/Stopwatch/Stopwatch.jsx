@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-let seconds = Math.floor(this.state.elapsedTime / 1000);
 class Stopwatch extends Component {
   state = {
     running: false,
@@ -47,6 +46,7 @@ class Stopwatch extends Component {
   };
 
   render() {
+    let seconds = Math.floor(this.state.elapsedTime / 1000);
     return (
       <div className="stopwatch">
         <h2>Stopwatch</h2>

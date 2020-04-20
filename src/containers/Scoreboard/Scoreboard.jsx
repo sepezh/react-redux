@@ -2,24 +2,16 @@ import React, { Component } from "react";
 import Player from "../../components/Player";
 import Header from "../../components/Header";
 import AddPlayerForm from "../../components/AddPlayerForm";
+import autoBind from "react-autobind";
 
 class Scoreboard extends Component {
-  state = {
-    players: [
-      {
-        name: "Jim Hoskins",
-        score: 31,
-      },
-      {
-        name: "Andrew Chalkley",
-        score: 20,
-      },
-      {
-        name: "Alena Holligan",
-        score: 50,
-      },
-    ],
-  };
+  constructor() {
+    super();
+    this.state = {
+      players: [],
+    };
+    autoBind(this);
+  }
 
   onScoreChange = (index, delta) => {
     this.state.players[index].score += delta;
